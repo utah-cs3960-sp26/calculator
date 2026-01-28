@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scientific Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <div class="expression" id="expression"></div>
+            <div class="result" id="result">0</div>
+        </div>
+       <div class="buttons">
+            <button class="btn func" onclick="calc.clear()">C</button>
+            <button class="btn func" onclick="calc.clearEntry()">CE</button>
+            <button class="btn func" onclick="calc.backspace()">⌫</button>
+            <button class="btn operator" onclick="calc.append('/')">/</button>
+
+            <button class="btn scientific" onclick="calc.func('sin')">sin</button>
+            <button class="btn scientific" onclick="calc.func('cos')">cos</button>
+            <button class="btn scientific" onclick="calc.func('tan')">tan</button>
+            <button class="btn operator" onclick="calc.append('*')">×</button>
+
+            <button class="btn scientific" onclick="calc.func('asin')">sin⁻¹</button>
+            <button class="btn scientific" onclick="calc.func('acos')">cos⁻¹</button>
+            <button class="btn scientific" onclick="calc.func('atan')">tan⁻¹</button>
+            <button class="btn operator" onclick="calc.append('-')">−</button>
+
+            <button class="btn scientific" onclick="calc.func('log')">log</button>
+            <button class="btn scientific" onclick="calc.func('ln')">ln</button>
+            <button class="btn scientific" onclick="calc.func('sqrt')">√</button>
+            <button class="btn operator" onclick="calc.append('+')">+</button>
+
+            <button class="btn scientific" onclick="calc.append('**')">xʸ</button>
+            <button class="btn scientific" onclick="calc.append('**2')">x²</button>
+            <button class="btn scientific" onclick="calc.func('exp')">eˣ</button>
+            <button class="btn scientific" onclick="calc.append('Math.PI')">π</button>
+
+            <button class="btn scientific" onclick="calc.func('abs')">|x|</button>
+            <button class="btn scientific" onclick="calc.func('fact')">n!</button>
+            <button class="btn scientific" onclick="calc.append('Math.E')">e</button>
+            <button class="btn scientific" onclick="calc.append('**0.5')">√x</button>
+
+            <button class="btn number" onclick="calc.append('7')">7</button>
+            <button class="btn number" onclick="calc.append('8')">8</button>
+            <button class="btn number" onclick="calc.append('9')">9</button>
+            <button class="btn func" onclick="calc.append('(')">(</button>
+
+            <button class="btn number" onclick="calc.append('4')">4</button>
+            <button class="btn number" onclick="calc.append('5')">5</button>
+            <button class="btn number" onclick="calc.append('6')">6</button>
+            <button class="btn func" onclick="calc.append(')')">)</button>
+
+            <button class="btn number" onclick="calc.append('1')">1</button>
+            <button class="btn number" onclick="calc.append('2')">2</button>
+            <button class="btn number" onclick="calc.append('3')">3</button>
+            <button class="btn equals" onclick="calc.calculate()">=</button>
+
+            <button class="btn number zero" onclick="calc.append('0')">0</button>
+            <button class="btn number" onclick="calc.append('.')">.</button>
+            <button class="btn scientific" onclick="calc.toggleAngleMode()" id="angleMode">RAD</button>
+        </div>
+    </div>
+    <script src="calculator.js"></script>
+</body>
+</html>
