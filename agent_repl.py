@@ -82,7 +82,7 @@ def cmd_view(path: str) -> None:
     if not p.exists():
         print(f"Error: {path} does not exist")
         return
-    print(p.read_text(), end="")
+    print(p.read_text(encoding="utf-8"), end="")
 
 
 def cmd_help() -> None:
