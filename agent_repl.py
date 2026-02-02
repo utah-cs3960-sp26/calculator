@@ -25,7 +25,7 @@ def cmd_edit(path: str, old_str: str, new_str: str) -> None:
         print(f"Error: {path} does not exist")
         return
 
-    content = p.read_text()
+    content = p.read_text(encoding="utf8")
 
     if old_str not in content:
         print(f"Error: old_str not found in {path}")
@@ -34,7 +34,7 @@ def cmd_edit(path: str, old_str: str, new_str: str) -> None:
     edit_history.setdefault(path, []).append(content)
 
     new_content = content.replace(old_str, new_str, 1)
-    p.write_text(new_content)
+    p.write_text(new_content, encoding="utf8")
 
     diff = difflib.unified_diff(
         content.splitlines(keepends=True),
@@ -52,10 +52,10 @@ def cmd_undo_edit(path: str) -> None:
         return
 
     p = Path(path)
-    current = p.read_text()
+    current = p.read_text(encoding="utf8")
     previous = edit_history[path].pop()
 
-    p.write_text(previous)
+    p.write_text(previous, encoding="utf8")
 
     # Show diff
     diff = difflib.unified_diff(
@@ -71,7 +71,7 @@ def cmd_reset() -> None:
     """Reset all edited files to original versions."""
     for path, history in edit_history.items():
         if history:
-            Path(path).write_text(history[0])
+            Path(path).write_text(history[0], encoding="utf8")
             print(f"Reset {path}")
     edit_history.clear()
 
